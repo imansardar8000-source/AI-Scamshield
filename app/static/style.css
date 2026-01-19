@@ -1,0 +1,175 @@
+/* RESET + GOOGLE STYLE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", "Inter", Arial, sans-serif;
+}
+
+body {
+  background: #f8f9fa;
+  color: #202124;
+}
+
+/* PAGE */
+.page {
+  max-width: 1200px;
+  margin: auto;
+  background: #ffffff;
+  min-height: 100vh;
+}
+
+/* ======================
+   HEADER (BIG LOGO)
+====================== */
+.header {
+  text-align: center;
+  padding: 48px 16px 28px; /* more space */
+  border-bottom: 1px solid #e0e0e0;
+}
+
+/* 🔥 BIG, DOMINANT LOGO */
+.logo {
+  height: 160px;        /* ⬅️ MUCH BIGGER */
+  max-width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 16px;
+  color: #5f6368;
+  font-weight: 500;
+}
+
+/* ======================
+   SCAN BAR
+====================== */
+.scan-bar {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.scan-bar input {
+  flex: 1;
+  height: 46px;
+  padding: 0 14px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #dadce0;
+}
+
+.scan-bar input:focus {
+  outline: none;
+  border-color: #1a73e8;
+}
+
+.analyze-btn {
+  height: 46px;
+  padding: 0 26px;
+  background: #1a73e8;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+
+.analyze-btn:hover {
+  background: #1669c1;
+}
+
+/* ======================
+   MAIN
+====================== */
+.main {
+  display: grid;
+  grid-template-columns: 220px 1fr 260px;
+  gap: 24px;
+  padding: 24px;
+}
+
+/* RISK */
+.risk-box {
+  text-align: center;
+}
+
+.meter {
+  width: 36px;
+  height: 190px;
+  background: #e8eaed;
+  margin: 12px auto;
+  border-radius: 6px;
+}
+
+.fill {
+  height: 0%;
+  background: #d93025;
+  transition: height 0.8s ease;
+}
+
+.risk-percent {
+  font-size: 28px;
+  font-weight: 600;
+  color: #d93025;
+}
+
+.risk-label {
+  font-size: 13px;
+  color: #5f6368;
+}
+
+/* CENTER */
+.center-panel h4 {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #1a73e8;
+}
+
+.badge {
+  display: inline-block;
+  background: #fce8e6;
+  color: #d93025;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  margin: 12px 0;
+}
+
+.summary {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.what {
+  background: #e8f0fe;
+  padding: 12px;
+  border-radius: 6px;
+}
+
+/* PHONE */
+.phone {
+  border: 1px solid #dadce0;
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.phone-screen {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+/* FOOTER */
+.status-bar {
+  padding: 14px;
+  font-size: 12px;
+  color: #5f6368;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+}
