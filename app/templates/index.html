@@ -16,9 +16,6 @@
       class="logo"
       alt="AI ScamShield Logo"
     />
-    <p class="subtitle">
-      Indian Scam & Fraud Detection System
-    </p>
   </header>
 
   <!-- SCAN BAR -->
@@ -41,13 +38,15 @@
     <section class="risk-box">
       <div class="meter">
         <div
-          class="fill"
-          id="riskFill"
-          data-risk="{{ risk }}"
-          data-uncertain="{{ 'true' if 45 <= risk <= 55 else 'false' }}"
+          class="fill {{ 'low' if risk < 40 else 'medium' if risk < 70 else 'high' }}"
+          style="height: {{ risk|int }}%;"
         ></div>
       </div>
-      <div class="risk-percent">{{ risk }}%</div>
+
+      <div class="risk-percent {{ 'low' if risk < 40 else 'medium' if risk < 70 else 'high' }}">
+        {{ risk|int }}%
+      </div>
+
       <div class="risk-label">{{ confidence }}</div>
     </section>
 
@@ -92,7 +91,6 @@
           <div
             class="phone-message"
             id="phoneMessage"
-            data-words='{{ top_words | tojson }}'
           >
             {{ message }}
           </div>
@@ -110,13 +108,6 @@
 </div>
 
 <script>
-  const fill = document.getElementById("riskFill");
-  if (fill) {
-    setTimeout(() => {
-      fill.style.height = fill.dataset.risk + "%";
-    }, 200);
-  }
-
   function updatePhone() {
     const phone = document.getElementById("phoneMessage");
     if (phone) {
