@@ -26,19 +26,15 @@ body {
 .header {
   background: linear-gradient(180deg, #f8fbff, #eef3f9);
   padding: 18px 32px;
-
-   border-radius: 0 0 22px 22px;   /* 👈 ALL sides curvy */
-
+  border-radius: 0 0 22px 22px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-
   display: flex;
   justify-content: center;
-       
 }
 
 /* 🔥 BIG, DOMINANT LOGO */
 .logo {
-  height: 90px;          /* ⬅️ reduced, but still prominent */
+  height: 90px;
   max-width: 100%;
   margin-bottom: 8px;
 }
@@ -95,35 +91,30 @@ body {
 }
 
 /* RISK */
-/* RISK */
 .risk-box {
   text-align: center;
 }
 
 /* METER CONTAINER */
 .meter {
-  position: relative;               /* 👈 required */
+  position: relative;
   width: 36px;
   height: 190px;
   background: #e8eaed;
   margin: 12px auto;
   border-radius: 8px;
   overflow: hidden;
-
-  /* subtle depth */
   box-shadow: inset 0 0 4px rgba(0,0,0,0.15);
 }
 
 /* FILL – bottom → top */
 .fill {
   position: absolute;
-  bottom: 0;                        /* 👈 key line */
+  bottom: 0;
   width: 100%;
   height: 0%;
   transition: height 0.8s ease;
   border-radius: 8px 8px 0 0;
-
-  /* soft shine */
   box-shadow: inset 0 2px 6px rgba(255,255,255,0.35);
 }
 
@@ -206,4 +197,185 @@ body {
   color: #5f6368;
   text-align: center;
   border-top: 1px solid #e0e0e0;
+}
+
+/* ======================
+   RISK METER MOTION
+====================== */
+
+@keyframes rise {
+  from { height: 0%; }
+  to   { height: var(--risk-height); }
+}
+
+.fill.low,
+.fill.medium,
+.fill.high {
+  animation: rise 1s ease-out forwards;
+}
+
+/* ======================
+   SAFETY MESSAGE FOOTER (NEW)
+====================== */
+
+/* ======================
+   SAFETY MESSAGE FOOTER (INDUSTRY GRADE)
+====================== */
+
+.safety-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 16px;
+  font-size: 13px;
+  font-weight: 500;
+
+  color: #1a73e8;
+  background: linear-gradient(180deg, #f8fbff, #eef3f9);
+
+  border-top: 1px solid #e0e0e0;
+}
+
+/* Shield / Risk Icon */
+.safety-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Text */
+.safety-text {
+  letter-spacing: 0.2px;
+}
+
+/* ======================
+   GOOGLE-STYLE CARDS
+====================== */
+
+/* Risk meter card */
+.risk-box {
+  background: linear-gradient(180deg, #f8fbff, #f1f5fb);
+  border-radius: 16px;
+  padding: 18px 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+/* Center panel card */
+.center-panel {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 22px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+/* Phone card */
+.phone {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  border: none; /* remove old border */
+}
+
+/* Phone screen refinement */
+.phone-screen {
+  background: #f8fbff;
+  border-radius: 14px;
+  padding: 14px;
+}
+
+/* Phone title polish */
+.phone-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a73e8;
+  margin-bottom: 8px;
+}
+
+/* Phone message text */
+.phone-message {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #202124;
+}
+
+/* ======================
+   CENTER PANEL – ADVANCED GOOGLE UI
+====================== */
+
+/* Make center panel feel layered */
+.center-panel {
+  background: linear-gradient(180deg, #ffffff, #fafbfd);
+}
+
+/* Severity headline (SCAM LIKELY) */
+.center-panel .badge {
+  font-size: 13px;
+  font-weight: 700;
+  padding: 8px 14px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 6px rgba(217, 48, 37, 0.25);
+}
+
+/* Model info → subtle tech pill */
+.model-info {
+  font-size: 12px;
+  color: #5f6368;
+  background: #f1f3f4;
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin-bottom: 14px;
+}
+
+/* Summary emphasis */
+.summary {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #202124;
+  padding: 14px;
+  background: #f8fbff;
+  border-radius: 12px;
+  border-left: 4px solid #1a73e8;
+}
+
+/* Section titles → divider style */
+.center-panel h4 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1a73e8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+
+/* Reason & keyword blocks */
+.reasons li {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #202124;
+  border-left: 4px solid #e8eaed;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Highlight suspicious terms list slightly */
+.reasons li:nth-child(odd) {
+  background: #f8fbff;
+}
+
+/* Recommended action → alert box */
+.what {
+  background: linear-gradient(180deg, #e8f0fe, #f5f9ff);
+  border-left: 4px solid #1a73e8;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #174ea6;
 }
