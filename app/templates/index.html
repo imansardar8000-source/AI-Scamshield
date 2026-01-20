@@ -39,7 +39,7 @@
       <div class="meter">
         <div
           class="fill {{ 'low' if risk < 40 else 'medium' if risk < 70 else 'high' }}"
-          style="height: {{ risk|int }}%;"
+          style="--risk-height: {{ risk|int }}%;"
         ></div>
       </div>
 
@@ -86,8 +86,15 @@
     <!-- PHONE -->
     <section class="phone-cut">
       <div class="phone">
+
+        <div class="phone-tabs">
+          <div class="phone-tab active">Message</div>
+          <div class="phone-tab">Info</div>
+        </div>
+
         <div class="phone-screen">
           <div class="phone-title">Incoming message</div>
+
           <div
             class="phone-message"
             id="phoneMessage"
@@ -95,26 +102,51 @@
             {{ message }}
           </div>
         </div>
+
       </div>
     </section>
 
   </main>
   {% endif %}
 
-  <footer class="status-bar">
-    AI-generated analysis. Results are probabilistic and for awareness only.
-  </footer>
+  <!-- ✅ SAFETY MESSAGE (NEW) -->
+  <div class="safety-footer">
+  <span class="safety-icon">🛡️</span>
+  <span class="safety-text">
+    Stay Safe — Protect Yourself from Online Scams & Fraud
+  </span>
+</div>
+
 
 </div>
 
 <script>
+  function highlightWords() {
+    const phone = document.getElementById("phoneMessage");
+    if (!phone) return;
+
+    const words = JSON.parse(phone.dataset.words || "[]");
+    let text = phone.innerText;
+
+    words.forEach(word => {
+      const regex = new RegExp(`\\b(${word})\\b`, "gi");
+      text = text.replace(regex, "<mark>$1</mark>");
+    });
+
+    phone.innerHTML = text;
+  }
+
   function updatePhone() {
     const phone = document.getElementById("phoneMessage");
-    if (phone) {
-      phone.innerText =
-        document.getElementById("messageInput").value;
+    const input = document.getElementById("messageInput");
+
+    if (phone && input) {
+      phone.innerText = input.value;
+      highlightWords();
     }
   }
+
+  window.addEventListener("load", highlightWords);
 </script>
 
 </body>
